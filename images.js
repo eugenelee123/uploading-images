@@ -27,5 +27,15 @@ function getImages(callback){
     })
 };
 
-function insertImg(item){
+function insertImg(item)
+{
+    console.log(item.id + item.caption + item.src);
+    var htmlTemplate = $("#templateImg").text();
+    
+    $("#orderedList").append(htmlTemplate);
+    $("#orderedList").last("img").attr("id", item.id);
+    $("#orderedList").find(item.id).text(item.caption);
+    $("#orderedList").find(item.id).attr("src", item.src);
+    
+    
 }
