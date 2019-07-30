@@ -34,7 +34,7 @@ minioClient.makeBucket('images','us-east-1',function(err)){
     console.log('Bucket created successfully')
 
 let f=require('f');
-let file = '/Downloads/kitten.jpeg';
+let file = 'kitten.jpeg';
 let stream = f.createReadStream(file);
 
 minioClient.putObject('images','kitten.jpeg',stream,function(err,etag){
