@@ -1,41 +1,25 @@
-$docBody=$(document.body);
-let test;
-
-$docBody.ready(function(){
-    console.log("Loaded");
-    
-    getImages(function(results){
-        console.log(results);
-        
-        let obj=results;
-        let test= results;
-        obj.forEarch(insertImg);
-    })
-})
-
-function getImages(callback){
-    var parameters={
-        url:"https://localhost:3000/images",
-        method:"GET",
-        dataType:"json"
-    };
-    
-    $.ajax(parameters).done(function(results){
-        if(callback){
-            console.log(results);
+(function (window){
+  fetch('http://localhost:3000/images')
+    .then(
+      function(response) {
+        if (response.status !== 200) {
+          console.log('Looks like there was a problem. Status Code: ' +
+            response.status);
+          return;
         }
-    })
-};
 
-function insertImg(item)
-{
-    console.log(item.id + item.caption + item.src);
-    var htmlTemplate = $("#templateImg").text();
-    
-    $("#orderedList").append(htmlTemplate);
-    $("#orderedList").last("img").attr("id", item.id);
-    $("#orderedList").find(item.id).text(item.caption);
-    $("#orderedList").find(item.id).attr("src", item.src);
-    
-    
-}
+        // Examine the text in the response
+        response.json().then(function(data) {
+  		  for(var i = 0; i < data.length; i++){
+  			  var img = document.createElement('p');
+  			  img.innerHTML = "<img src=" + data[i].src + "></img>";
+  			  document.body.appendChild(img);
+  		  }
+        console.log('response');
+        });
+      }
+    )
+    .catch(function(err) {
+      console.log('Fetch Error :-S', err);
+    });
+})(window);
