@@ -4,6 +4,16 @@
       "id": 1,
       "src": "http://localhost:9000/images/kitten.jpeg",
       "caption": "kitteh"
+    },
+    {
+      "src": "\"http://localhost:9000/images/Acid (1).png\"",
+      "caption": "{}",
+      "id": 2
+    },
+    {
+      "src": "\"http://localhost:9000/images/Acid (2).png\"",
+      "caption": "{}",
+      "id": 3
     }
   ]
 }

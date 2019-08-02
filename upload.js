@@ -24,4 +24,11 @@ submitBtn.addEventListener('click', function (event) {
   }, function (err, data) {
     console.log(err, data);
   });
+
+$.ajax({
+  url: "http://localhost:3000/images",
+  type: "POST",
+  dataType: "json",
+  data: {src: JSON.stringify("http://localhost:9000/images/".concat(imgFile.name)), caption: JSON.stringify(imgName)}
+})
 });
