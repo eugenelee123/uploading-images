@@ -14,6 +14,11 @@
       "src": "\"http://localhost:9000/images/Acid (2).png\"",
       "caption": "{}",
       "id": 3
+    },
+    {
+      "src": "http://localhost:9000/images/Tile (2).png",
+      "caption": "test3",
+      "id": 4
     }
   ]
 }
